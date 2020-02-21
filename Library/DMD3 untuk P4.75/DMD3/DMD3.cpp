@@ -210,8 +210,8 @@
 // Pins on the DMD connector board.
 #define DMD3_PIN_A       6       // A
 #define DMD3_PIN_B       7       // B
-#define DMD3_PIN_C       3       // A
-#define DMD3_PIN_D       2       // B
+#define DMD3_PIN_C       5      // C
+#define DMD3_PIN_D       4      // D
 #define DMD3_PIN_LATCH           8       // SCLK
 #define DMD3_PIN_OUTPUT_ENABLE   9       // nOE
 #define DMD3_PIN_SPI_SS          SS      // SPI Slave Select

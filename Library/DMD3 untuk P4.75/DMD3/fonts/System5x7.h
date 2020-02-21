@@ -1,10 +1,8 @@
 /*
- *
- * System5x7
- *
- *
+ * Editor              : Irfan Indra Kurniawan
+ * Website             : www.FansElectronics.com
  * File Name           : System5x7.h
- * Date                : 28 Oct 2008
+ * Date                : 28 Oct 2008  > CHANGELOG = 17.02.2017
  * Font size in bytes  : 470
  * Font width          : 5
  * Font height         : 7
@@ -12,31 +10,11 @@
  * Font last char      : 127
  * Font used chars     : 94
  *
- * The font data are defined as
- *
- * struct _FONT_ {
- *     uint16_t   font_Size_in_Bytes_over_all_included_Size_it_self;
- *     uint8_t    font_Width_in_Pixel_for_fixed_drawing;
- *     uint8_t    font_Height_in_Pixel_for_all_characters;
- *     unit8_t    font_First_Char;
- *     uint8_t    font_Char_Count;
- *
- *     uint8_t    font_Char_Widths[font_Last_Char - font_First_Char +1];
- *                  // for each character the separate width in pixels,
- *                  // characters < 128 have an implicit virtual right empty row
- *
- *     uint8_t    font_data[];
- *                  // bit field of all characters
+ * CopyRight 2017 FansElectronics
  */
 
 #include <inttypes.h>
-#ifdef __AVR__
 #include <avr/pgmspace.h>
-#elif defined (ESP8266)
-#include <pgmspace.h>
-#else
-#define PROGMEM
-#endif
 
 #ifndef SYSTEM5x7_H
 #define SYSTEM5x7_H
@@ -44,27 +22,20 @@
 #define SYSTEM5x7_WIDTH 5
 #define SYSTEM5x7_HEIGHT 7
 
-/*
- * added to allow fontname to match header file name.
- * as well as keep the old name for backward compability
- */
-
-#define SystemFont5x7 System5x7
-
-static const uint8_t System5x7[] PROGMEM = {
+const static uint8_t System5x7[] PROGMEM = {
     0x0, 0x0, // size of zero indicates fixed width font, actual length is width * height
     0x05, // width
     0x07, // height
     0x20, // first char
     0x60, // char count
-
+    
     // Fixed width; char width table not used !!!!
-
+    
     // font data
     0x00, 0x00, 0x00, 0x00, 0x00,// (space)
 	0x00, 0x00, 0x5F, 0x00, 0x00,// !
 	0x00, 0x07, 0x00, 0x07, 0x00,// "
-	0x7F, 0x77, 0x41, 0x75, 0x7F,// #
+	0x14, 0x7F, 0x14, 0x7F, 0x14,// #
 	0x24, 0x2A, 0x7F, 0x2A, 0x12,// $
 	0x23, 0x13, 0x08, 0x64, 0x62,// %
 	0x36, 0x49, 0x55, 0x22, 0x50,// &
@@ -157,7 +128,7 @@ static const uint8_t System5x7[] PROGMEM = {
 	0x00, 0x41, 0x36, 0x08, 0x00,// }
 	0x08, 0x08, 0x2A, 0x1C, 0x08,// ->
 	0x08, 0x1C, 0x2A, 0x08, 0x08 // <-
-
+    
 };
 
 #endif
